@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <h1>Login to Your Account</h1>
+    <form action="htm1.html" method="post" onsubmit="return validateForm()">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+      <div id="errorMessage" class="error-message"></div>
+    </form>
+  </div>
+
+  <script>
+    
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      if (password === "password1") {
+        return true;
+      } else {
+        alert("Invalid password!");
+        return false;
+      }
+    }
+ 
+    document.getElementById("loginForm").addEventListener("submit", async function(event) {
+  event.preventDefault();
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  try {
+    const response = await fetch('http://localhost:3003/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      if (data.message === 'Login successful') {
+        // Redirect to the dashboard
+        window.location.href = 'htm1.html';
+const mongoose = require('mongoose');
+
+const app = express();
+const port = 3003;
+
+// Connect to MongoDB
+mongoose.connect('mongodb+srv://lokeshpothureddypalli:2WVHm6wltlAsJ8wQ@cluster0.q4idtwq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+app.use(express.json());
+
+
+app.use(express.static('C:/Users/Lokesh/OneDrive/Desktop/web totorial-/public'));
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
+
+const dbconn = mongoose.connection.useDb('lmsproject');
+const LoginDetails = dbconn.collection('loginDetails');
+
+// Define a schema
+// const Schema = mongoose.Schema;
+// const MessageSchema = new Schema({
+//   message: String,
+// });
+
+// // Define a model
+// const Message = mongoose.model('Message', MessageSchema);
+
+// Define routes
+app.get('/', async (req, res) => {
+  try {
+    // Retrieve messages from MongoDB
+    res.sendFile("C:/Users/Lokesh/OneDrive/Desktop/web totorial-/htm1.html");
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.get('/login', async(req, res) => {
+  try{
+    res.sendFile("C:/Users/Lokesh/OneDrive/Desktop/web totorial-/login.html")
+  }
+  catch(err) {
+    res.status(500).send*(err);
+  }
+})
+
+app.get('/start', async(req, res) => {
+  try{
+    res.sendFile("C:/Users/Lokesh/OneDrive/Desktop/web totorial-/hm3m2.html")
+  }
+  catch(err){
+    res.status(500).send(err);
+  }
+})
+
+app.post('/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    try {
+      const user = await LoginDetails.findOne({ username, password });
+      console.log(username);
+      console.log(password);
+      console.log(user);
+      if (user) {
+        res.status(200).json({ message: 'Login successful', user });
+      } else {
+        res.status(401).json({ error: 'Invalid username or password' });
+      }
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Something went wrong' });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Something went wrong' });
+  }
+});
+
+
+
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
+      } else {
+        document.getElementById("errorMessage").innerHTML = data.error || "Invalid username or password";
+      }
+    } else {
+      throw new Error('Network response was not ok.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+});
+
+  </script>
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  background-image: url('https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?cs=srgb&dl=pexels-julia-m-cameron-4144923.jpg&fm=jpg');
+  margin: 0;
+  height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.login-container {
+  width: 360px;
+  margin: 100px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+</style>
+
+</body>
+</html>

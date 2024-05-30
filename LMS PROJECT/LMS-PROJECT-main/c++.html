@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Course</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        h1, h2, h3 {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>C++ Programming Course</h1>
+    <p>Welcome to the C++ Programming course. In this course, you will learn the fundamentals of C++ programming language.</p>
+    
+    <h2>Course Overview</h2>
+    <p>This course covers the following topics:</p>
+    <ul>
+        <li>Introduction to C++</li>
+        <li>Variables and Data Types</li>
+        <li>Control Structures</li>
+        <li>Functions</li>
+        <li>Arrays and Strings</li>
+        <li>Pointers</li>
+        <li>Object-Oriented Programming (OOP)</li>
+        <li>File Handling</li>
+    </ul>
+    
+    <h2>Course Content</h2>
+    <p>Below are the modules of this course:</p>
+    <ol>
+        <li>Module 1: Introduction to C++</li>
+        <li>Module 2: Variables and Data Types</li>
+        <li>Module 3: Control Structures</li>
+        <li>Module 4: Functions</li>
+        <li>Module 5: Arrays and Strings</li>
+        <li>Module 6: Pointers</li>
+        <li>Module 7: Object-Oriented Programming (OOP)</li>
+        <li>Module 8: File Handling</li>
+    </ol>
+    
+    
+        <input type="file" id="fileInput">
+        <button onclick="uploadFile()">Upload File</button>
+        <button onclick="downloadFile()">Download File</button>
+    
+        <script>
+            let uploadedFile;
+    
+            function uploadFile() {
+                const fileInput = document.getElementById('fileInput');
+                uploadedFile = fileInput.files[0];
+            }
+    
+            function downloadFile() {
+                if (uploadedFile) {
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = URL.createObjectURL(uploadedFile);
+                    downloadLink.download = uploadedFile.name;
+                    downloadLink.click();
+                } else {
+                    alert('Please upload a file first.');
+                }
+            }
+        </script>
+   
+    <h2>Course Instructor</h2>
+    <p>The course instructor for this course is John Doe.</p>
+    
+    <h2>Course Duration</h2>
+    <p>This is a self-paced course. You can complete it at your own pace.</p>
+    
+    <h2>Course Materials</h2>
+    <p>Course materials will be provided within the course modules.</p>
+    
+    <h2>Assessment</h2>
+    <p>There will be quizzes and assignments at the end of each module to assess your understanding.</p>
+    
+    <h2>Prerequisites</h2>
+    <p>Basic knowledge of programming concepts is required. Prior experience with any programming language will be helpful.</p>
+    
+    <h2>Enroll Now</h2>
+    <p>To enroll in this course, please <a href="#">click here</a>.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "init": "^0.1.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.3"
+  },
+  "name": "web-totorial-",
+  "version": "1.0.0",
+  "main": "script16.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,51 @@
+*{
+    padding:0;
+    margin:0;
+    
+    box-sizing:border-box;
+
+
+font-family: 'Montserrat', sans-serif;
+list-style:none;
+text-decoration:smooth;
+scroll-behavior: smooth;
+
+}
+:root{
+    --bd-color:#ffffff;
+    --text-color:#22100d;
+    --second-color:#685f78;
+    --main-color:f66962;
+    --big-font: 3.8rem;
+    --h2-font:2.6rem;
+    --p-font:1.1rem
+
+    
+}
+body
+{
+    background-color:brown;
+    color:var(--texty-color);
+    
+
+}
+header{
+    position:fixed;
+    width: 10%;
+    top:0;
+    right:0;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:transparent;
+    padding:23px 13%;
+    transition:all .40s ease;
+
+
+
+
+
+    
+
+}
